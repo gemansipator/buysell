@@ -1,11 +1,10 @@
 package site.javadev.buysell.services;
 
-import org.springframework.stereotype.Service;
 import site.javadev.buysell.models.Product;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Service
 public class ProductService {
@@ -25,12 +24,12 @@ public class ProductService {
     }
 
     public void deleteProduct(Long id) {
-        products.removeIf(product -> Objects.equals(product.getId(), id));
+        products.removeIf(product -> product.getId().equals(id));
     }
 
     public Product getProductById(Long id) {
         for (Product product : products) {
-            if (Objects.equals(product.getId(), id)) return product;
+            if (product.getId().equals(id)) return product;
         }
         return null;
     }
